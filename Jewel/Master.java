@@ -3,43 +3,9 @@
  */
 package Jewel;
 
-import com.borland.dx.dataset.Column;
-import com.borland.dx.dataset.DataRow;
-import com.borland.dx.dataset.DataSet;
-import com.borland.dx.dataset.Locate;
-import com.borland.dx.dataset.Variant;
+import com.borland.dx.dataset.*;
 import com.borland.dx.sql.dataset.Load;
 import com.borland.dx.sql.dataset.QueryDataSet;
-import java.awt.Desktop;
-
-import java.awt.Dimension;
-import java.awt.Toolkit;
-import java.io.ByteArrayInputStream;
-import java.io.File;
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.InputStreamReader;
-import java.io.StringReader;
-import java.io.UnsupportedEncodingException;
-import java.lang.reflect.InvocationTargetException;
-import java.math.BigDecimal;
-import java.net.MalformedURLException;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.text.NumberFormat;
-import java.time.LocalDate;
-import java.util.ArrayList;
-import java.util.Calendar;
-import java.util.GregorianCalendar;
-import java.util.HashMap;
-import java.util.Iterator;
-import java.util.List;
-import java.util.Map;
-import java.util.Optional;
-import java.util.Set;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javafx.animation.PauseTransition;
 import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
@@ -51,41 +17,16 @@ import javafx.geometry.Insets;
 import javafx.geometry.VPos;
 import javafx.scene.Node;
 import javafx.scene.Scene;
-import javafx.scene.control.Alert;
-import javafx.scene.control.Alert.AlertType;
+import javafx.scene.control.*;
 import javafx.scene.control.Button;
-import javafx.scene.control.ButtonType;
-import javafx.scene.control.CheckBox;
-import javafx.scene.control.ChoiceDialog;
-import javafx.scene.control.Control;
-import javafx.scene.control.DatePicker;
 import javafx.scene.control.Label;
-import javafx.scene.control.ListView;
-import javafx.scene.control.RadioButton;
 import javafx.scene.control.ScrollPane;
-import javafx.scene.control.SelectionMode;
-import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
-import javafx.scene.control.TextInputDialog;
-import javafx.scene.control.Toggle;
-import javafx.scene.control.ToggleGroup;
-import javafx.scene.control.Tooltip;
+import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.cell.MapValueFactory;
-import javafx.scene.effect.Bloom;
-import javafx.scene.effect.BoxBlur;
-import javafx.scene.effect.DropShadow;
-import javafx.scene.effect.Glow;
-import javafx.scene.effect.InnerShadow;
-import javafx.scene.effect.Lighting;
-import javafx.scene.effect.Reflection;
+import javafx.scene.effect.*;
 import javafx.scene.image.ImageView;
-import javafx.scene.layout.BorderPane;
-import javafx.scene.layout.GridPane;
-import javafx.scene.layout.HBox;
-import javafx.scene.layout.Pane;
-import javafx.scene.layout.Priority;
-import javafx.scene.layout.StackPane;
-import javafx.scene.layout.VBox;
+import javafx.scene.layout.*;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
 import javafx.scene.text.TextAlignment;
@@ -93,27 +34,10 @@ import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 import javafx.util.Duration;
 import javafx.util.converter.NumberStringConverter;
-import javax.json.Json;
-import javax.json.JsonArray;
-import javax.json.JsonArrayBuilder;
-import javax.json.JsonObject;
-import javax.json.JsonObjectBuilder;
-import javax.json.JsonReader;
-import javax.json.stream.JsonParser;
-import javax.json.stream.JsonParser.Event;
-import static javax.json.stream.JsonParser.Event.KEY_NAME;
-import static javax.json.stream.JsonParser.Event.VALUE_STRING;
-import javax.script.Invocable;
-import javax.script.ScriptException;
-import javax.swing.JInternalFrame;
-import javax.swing.JOptionPane;
-import javax.swing.SwingUtilities;
-
 import technopolis.Designer.Contact.ContactUserProperty;
 import technopolis.MainFrame;
 import technopolis.MetaSerializ.FileLoader;
 import technopolis.RunITec;
-
 import technopolis.action.RunAction;
 import technopolis.action.RunDealer;
 import technopolis.constant.iTecBrowserCodeNode;
@@ -124,26 +48,40 @@ import technopolis.explorer.ReferenceHelper;
 import technopolis.explorer.TechExplorer;
 import technopolis.explorer.TechExplorerPanel;
 import technopolis.explorer.View;
-import technopolis.javaFx.DecimalField;
-import technopolis.javaFx.DoubleField;
-import technopolis.javaFx.NumberField;
-import technopolis.javaFx.NumberSpinner;
-import technopolis.javaFx.iTecTableView;
+import technopolis.javaFx.*;
 import technopolis.query.AbstractQuery;
-
 import technopolis.tool.RunSQLFile;
 import technopolis.util.FileUtil;
-import technopolis.модель.ContactRight;
-import technopolis.модель.Dealer;
-import technopolis.модель.DealerHelper;
-import technopolis.модель.iTecModel;
-import technopolis.модель.modelResources;
-import technopolis.модель.Пользователь;
+import technopolis.модель.*;
+
+import javax.json.*;
+import javax.json.stream.JsonParser;
+import javax.json.stream.JsonParser.Event;
+import javax.script.Invocable;
+import javax.script.ScriptException;
+import javax.swing.*;
+import java.awt.*;
+import java.io.*;
+import java.lang.reflect.InvocationTargetException;
+import java.math.BigDecimal;
+import java.net.MalformedURLException;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.text.NumberFormat;
+import java.time.LocalDate;
+import java.util.List;
+import java.util.*;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
+import static javax.json.stream.JsonParser.Event.KEY_NAME;
+import static javax.json.stream.JsonParser.Event.VALUE_STRING;
 
 /**
  * Библиотека функций и методов прикладного языка программирования
  *
- * @author ShOleg 14-02-2018
+ * @author ShOleg 14-02-2018 12 12
  */
 public class Master {
 
