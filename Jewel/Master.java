@@ -81,7 +81,7 @@ import static javax.json.stream.JsonParser.Event.VALUE_STRING;
 /**
  * Библиотека функций и методов прикладного языка программирования
  *
- * @author ShOleg 14-02-2018 12 12
+ * @author ShOleg 14-02-2018 12 12  1122
  */
 public class Master {
 
