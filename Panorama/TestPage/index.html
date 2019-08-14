@@ -1,0 +1,167 @@
+<!doctype html>
+<html>
+
+    <head>
+        <meta charset="utf-8">
+        <title>Test</title>
+        
+        <link href="Untitled2.css" rel="stylesheet">
+        <link href="index.css" rel="stylesheet">
+
+        <script type = "text/javascript">
+
+            function callToJavaFX() {
+                Jewel.execAction("Калейдоскоп.Часы");
+            }
+
+            function callAutobot() {
+		Jewel.runAutobot("Пример вставки в базу данных");
+            }
+
+            function callFile() {
+		Jewel.runFile("Example/testWinOpen.js");
+            }
+
+            function callAlert() {
+		Jewel.alert("aaaaaaaaaaaaaaaaaaaaaaaaaaaaa");
+            }
+
+    	    function funcExecObject() {
+		Jewel.execObject("Картотека.Актив");
+	    }
+
+		function funcOpenFile(){
+			Jewel.openFile(Jewel.getFileServer()+"/Веб-страница на рабочем столе.url");
+			Jewel.openFile("%AppServer%/Shape/Статистика по ТехКорпорации.ott");
+			//Jewel.openFile("C:/Users/ShOleg/Desktop/Java DecimalFormat.url");
+		}
+
+
+	    function funcPath() {
+		var x1 = Jewel.getDBMS();
+		var x2 = Jewel.getAppServer();
+		var x3 = Jewel.getDataServer();
+		var x4 = Jewel.getFileServer();
+		Jewel.alert("path " + x1+"; "+x2+"; "+x3+"; "+x4);
+	    }
+
+
+
+	function funcChoiceDialog() {
+		var xxx = Jewel.choiceDialog("titleAAAAA","текст","Введите данные :");
+		Jewel.alert(xxx);
+	}
+
+
+	function funcTextInputDialog() {
+		var xxx = Jewel.textInputDialog("titleXXX","текст","Введите данные ?:","aasd");
+		Jewel.alert(xxx);
+	}
+
+	function funcPrompt() {
+		var xxx = Jewel.prompt("Сколько вам лет ","100");
+		Jewel.alert("Вам " + xxx + " лет!");
+	}
+
+	function funcConfirm() {
+		var xxx = Jewel.confirm("Вы - администратор?");
+		Jewel.alert("Ответ " + xxx);
+	}
+
+function funcNumberPattern() {
+	var xxx = Jewel.getNumber("v4");
+	Jewel.alert(xxx);
+
+}
+
+	function funcUnique() {
+		var xxx = Jewel.getUnique();
+		Jewel.alert(xxx);
+	}
+
+	function funcUser() {
+		var xxx = Jewel.getUser();
+		Jewel.alert(xxx);
+	}
+
+function funcNumberInt() {
+	var xxx = Jewel.getNumber("v41");
+	Jewel.alert(xxx);
+
+}
+
+	function funcSQL() {
+	
+		var userNW = '{ "title": "testDataRow", "screen":"2,2,50,20"}';
+		var ret0 = Jewel.winOpen(userNW );
+		var json = Jewel.getSelect("SELECT * FROM T.\"Словарь_ВидАктив\"");
+		json = JSON.parse(json);
+		Jewel.say(json[0].Код + ", "+json[0].Наименование);	
+		Jewel.say(json[1].Код + ", "+json[1].Наименование);	
+		Jewel.say(json[2].Код + ", "+json[2].Наименование);	
+	}
+
+
+function funcNumberFormat() {
+	var xxx = Jewel.getNumber("v21");
+	Jewel.alert(xxx);
+
+}
+
+	function funcPrint() {
+                Jewel.say("123123123123123123");
+	}
+
+
+
+            function det() {
+                 var txt1 = document.getElementById("Editbox2").value;
+                 var txt2 = document.getElementById("Editbox3").value;
+
+                 var status = document.getElementById("status");
+                 
+                 status.innerHTML = txt1+txt2;
+            }
+
+        </script>  
+
+
+    </head>
+
+    <body>
+
+        <FORM NAME = "urlForm">
+            <label for="Editbox2" id="Label2" style="position:absolute;left:10px;top:10px;width:122px;height:18px;line-height:18px;z-index:0;">Число 1:</label>
+            <input type="text" id="Editbox2" style="position:absolute;left:100px;top:10px;width:190px;height:18px;line-height:18px;z-index:1;" name="value1" value="100">
+            <label for="Editbox3" id="Label3" style="position:absolute;left:10px;top:50px;width:122px;height:18px;line-height:18px;z-index:2;">Число 2:</label>
+            <input type="text" id="Editbox3" style="position:absolute;left:100px;top:50px;width:190px;height:18px;line-height:18px;z-index:3;" name="Value2" value="30">
+            <input type="button" id="Button2" onclick="det()" name="" value="Расчет" style="position:absolute;left:10px;top:100px;width:196px;height:25px;z-index:4;">
+            <input type="button" id="Button3" onclick="callToJavaFX()" name="" value="Часы" style="position:absolute;left:10px;top:150px;width:196px;height:25px;z-index:4;" >
+            <input type="button" id="Button4" onclick="callAutobot()" name="" value="Выполнить автобот" style="position:absolute;left:10px;top:190px;width:196px;height:25px;z-index:4;" >
+            <input type="button" id="Button5" onclick="callFile()" name="" value="Выполнить файл" style="position:absolute;left:10px;top:230px;width:196px;height:25px;z-index:4;" >
+            <input type="button" id="Button6" onclick="callAlert()" name="" value="Alert" style="position:absolute;left:10px;top:270px;width:196px;height:25px;z-index:4;" >
+
+            <input type="button" id="Button7" onclick="funcPath()" name="" value="Path" style="position:absolute;left:10px;top:310px;width:196px;height:25px;z-index:4;" >
+            <input type="button" id="Button8" onclick="funcExecObject()" name="" value="ExecObject" style="position:absolute;left:10px;top:350px;width:196px;height:25px;z-index:4;" >
+            <input type="button" id="Button9" onclick="funcChoiceDialog()" name="" value="ChoiceDialog" style="position:absolute;left:10px;top:390px;width:196px;height:25px;z-index:4;" >
+            <input type="button" id="Button10" onclick="funcConfirm()" name="" value="Confirm" style="position:absolute;left:10px;top:430px;width:196px;height:25px;z-index:4;" >
+            <input type="button" id="Button11" onclick="funcPrompt()" name="" value="Prompt" style="position:absolute;left:10px;top:470px;width:196px;height:25px;z-index:4;" >
+            <input type="button" id="Button11" onclick="funcTextInputDialog()" name="" value="TextInputDialog" style="position:absolute;left:10px;top:510px;width:196px;height:25px;z-index:4;" >
+
+            <input type="button" id="Button11" onclick="funcUnique()" name="" value="Unique" style="position:absolute;left:10px;top:550px;width:196px;height:25px;z-index:4;" >
+            <input type="button" id="Button11" onclick="funcUser()" name="" value="User" style="position:absolute;left:10px;top:590px;width:196px;height:25px;z-index:4;" >
+            <input type="button" id="Button11" onclick="funcPrint()" name="" value="Print" style="position:absolute;left:10px;top:630px;width:196px;height:25px;z-index:4;" >
+
+            <input type="button" id="Button11" onclick="funcSQL()" name="" value="SQL" style="position:absolute;left:10px;top:670px;width:196px;height:25px;z-index:4;" >
+            <input type="button" id="Button12" onclick="funcOpenFile()" name="" value="OpenFile" style="position:absolute;left:10px;top:710px;width:196px;height:25px;z-index:4;" >
+
+            <span id="status" style="position:absolute;left:10px;top:200px;width:96px;height:25px;z-index:4;"></span>
+        </FORM>
+    </body>
+</html>
+
+
+
+
+
+

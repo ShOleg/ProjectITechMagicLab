@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?language javascript?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.152" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <Label alignment="TOP_CENTER" layoutX="113.0" layoutY="65.0" prefHeight="35.0" prefWidth="386.0" text="Проектирование FXML" textAlignment="CENTER" textFill="#eb0a0a">
+         <font>
+            <Font size="24.0" />
+         </font>
+      </Label>
+      <Button fx:id="button1" layoutX="133.0" layoutY="175.0" mnemonicParsing="false" onAction="runAction()" text="Выполнить alert()">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Button>
+      <Button fx:id="button2" layoutX="374.0" layoutY="175.0" mnemonicParsing="false" onAction="printOutput()" text="Показать данные">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Button>
+      <Label layoutX="19.0" layoutY="267.0" prefHeight="20.0" prefWidth="558.0" text="Этот пример создан в программе Scene Builder дизайна экранных интерфейсов.">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
+        <fx:script>
+            function printOutput(){
+		var Jewel = Java.type("Jewel.Master");
+		var Xd = new Jewel();
+		var prop = '{"title":"testDataRow", "screen":"10,10,50,30"}';
+		Xd.winOpen(prop);
+		var json = Xd.getSelect("SELECT * FROM T.\"Словарь_Налог\"");
+		json = JSON.parse(json);
+		Xd.say(json[0].Код+"-"+json[0].Наименование);
+            }
+            function runAction(){
+		var Jewel = Java.type("Jewel.Master");
+		var W1 = new Jewel();
+		W1.alert("Вы нажали кнопку");
+            }
+        </fx:script>
+   </children>
+</Pane>
